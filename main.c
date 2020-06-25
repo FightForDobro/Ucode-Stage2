@@ -10,17 +10,16 @@ int mx_strcmp(const char *s1, const char *s2);
 int mx_factorial_iter(int n);
 char *mx_strcpy(char *dst, const char *src);
 char *mx_strnew(const int size);
+unsigned long mx_hex_to_nbr(const char *hex);
+void mx_foreach(int *arr, int size, void(*f)(int));
 
 #include <stdio.h>
 
 int main() {
 
-    char *src = "JenjaLox";
-    char *dst = mx_strnew(100);
+    int a[5] = {1, 2, 3, 4, 5};
 
-    mx_strcpy(dst, src);
-
-    printf("%s", dst);
+    mx_foreach(a, 5, mx_printint);
 
     return 0;
 }

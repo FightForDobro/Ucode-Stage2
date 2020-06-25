@@ -4,11 +4,11 @@ void mx_printchar(char c);
 
 void mx_printint(int n)
 {
-
-    if (n == -2147483648)
+    if(n == -2147483648)
     {
-        write(1, "-2147483648\n", 12);
+        write(1, "-2147483648", 11);
     }
+
     else
     {
         if (n < 0) {
