@@ -1,3 +1,5 @@
+//#include <stdio.h>
+
 int mx_strcmp(const char *s1, const char *s2);
 
 int mx_bubble_sort(char **arr, int size)
@@ -20,3 +22,24 @@ int mx_bubble_sort(char **arr, int size)
 
     return count;
 }
+
+//int main()
+//{
+//    char *arr[] = {"abc", "xyz", "ghi", "def"};
+//
+//    printf("%d - { ", mx_bubble_sort(arr, 4));
+//
+//    for (int i = 0; i < 5; i++)
+//        printf("%s, ", arr[i]);
+//
+//    printf(" }\n");
+//
+//    char *arr1[] = {"abc", "acb", "a"};
+//
+//    printf("%d - { ", mx_bubble_sort(arr1, 3));
+//
+//    for (int i = 0; i < 3; i++)
+//        printf("%s, ", arr1[i]);
+//
+//    printf(" }\n");
+//}

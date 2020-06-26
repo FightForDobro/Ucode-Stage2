@@ -1,4 +1,5 @@
 #include <stdlib.h>
+//#include <stdio.h>
 
 char *mx_strnew(const int size)
 {
@@ -17,3 +18,13 @@ char *mx_strnew(const int size)
 
     return string;
 }
+
+//int main()
+//{
+//    char *string = mx_strnew(9);
+//
+//    for (int i = 0; i <= 9; i++)
+//        string[i] = i + 48;
+//
+//    printf("%s", string);
+//}

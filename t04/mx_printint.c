@@ -22,3 +22,16 @@ void mx_printint(int n)
         mx_printchar(n % 10 + '0');
     }
 }
+
+//int main()
+//{
+//    mx_printint(0);
+//    mx_printchar('\n');
+//    mx_printint(8);
+//    mx_printchar('\n');
+//    mx_printint(-1);
+//    mx_printchar('\n');
+//    mx_printint(-2147483648);
+//    mx_printchar('\n');
+//    mx_printint(2147483647);
+//}

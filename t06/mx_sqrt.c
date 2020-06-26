@@ -1,3 +1,5 @@
+//#include <stdio.h>
+
 int mx_sqrt(int x)
 {
     if (x == 0)
@@ -14,3 +16,15 @@ int mx_sqrt(int x)
 
     return 0;
 }
+
+//int main()
+//{
+//    printf("%d\n", mx_sqrt(4));
+//    printf("%d\n", mx_sqrt(2));
+//    printf("%d\n", mx_sqrt(0));
+//    printf("%d\n", mx_sqrt(8));
+//    printf("%d\n", mx_sqrt(1));
+//    printf("%d\n", mx_sqrt(10));
+//    printf("%d\n", mx_sqrt(16));
+//    printf("%d\n", mx_sqrt(36));
+//}

@@ -7,3 +7,8 @@ void mx_print_alphabet(void)
 
     mx_printchar('\n');
 }
+
+//int main()
+//{
+//    mx_print_alphabet();
+//}

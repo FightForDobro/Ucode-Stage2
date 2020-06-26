@@ -24,11 +24,11 @@ int main(int argc, char **argv)
     if (argc <= 1)
         return 0;
 
-    sort_args(argv, argc - 1);
+    sort_args(&argv[1], argc - 1);
 
     for (int i = 1; i < argc; i++)
     {
-        mx_printchar(argv[i]);
+        mx_printstr(argv[i]);
         mx_printchar('\n');
     }
 

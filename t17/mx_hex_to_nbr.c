@@ -1,3 +1,5 @@
+//#include <stdio.h>
+
 int convert_letters(char c)
 {
     if (c >= 48 && c <= 57)
@@ -28,3 +30,14 @@ unsigned long mx_hex_to_nbr(const char *hex)
 
     return n;
 }
+
+//int main()
+//{
+//    printf("%lu\n", mx_hex_to_nbr("0"));
+//    printf("%lu\n", mx_hex_to_nbr("1"));
+//    printf("%lu\n", mx_hex_to_nbr("2"));
+//    printf("%lu\n", mx_hex_to_nbr("A"));
+//    printf("%lu\n", mx_hex_to_nbr("1A"));
+//    printf("%lu\n", mx_hex_to_nbr("F"));
+//    printf("%lu\n", mx_hex_to_nbr("FF1"));
+//}
