@@ -3,13 +3,13 @@
 #include <stddef.h>
 #include <string.h>
 
-#define FUNC_COUNT 21
+#define FUNC_COUNT 27
 
 int main(int argc, char **argv)
 {
-    char *functions[FUNC_COUNT] = {"printchar", "unicode", "printstr", "printstr_arr", "printint", "pow", "sqrt", "nbr_to_hex", "hex_to_nbr", "foreach",
+    char *functions[FUNC_COUNT] = {"printchar", "unicode", "printstr", "printstr_arr", "printint", "pow", "sqrt", "nbr_to_hex", "hex_to_nbr", "itoa", "foreach",
                                    "binary_search", "bubble_sort", "quick_sort", "strlen", "swapchr", "revers_str", "strdel", "del_str_attr",
-                                   "get_char_index", "strdup", "strndup"};
+                                   "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index"};
 
     if (strcmp(argv[1], "choose") == 0)
     {
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "unicode") == 0)
     {
-        wchar_t c = L'£';
+        wchar_t c = L'ॵ';
         mx_print_unicode(c);
     }
 
@@ -77,6 +77,14 @@ int main(int argc, char **argv)
     else if (strcmp(argv[1], "hex_to_nbr") == 0)
         printf("%lu", mx_hex_to_nbr("FFFFFFFF"));
 
+    else if (strcmp(argv[1], "itoa") == 0)
+    {
+        mx_printstr(mx_itoa(0));
+        mx_printstr(mx_itoa(1));
+        mx_printstr(mx_itoa(-100));
+        mx_printstr(mx_itoa(200));
+        mx_printstr(mx_itoa(2147483647));
+    }
     else if (strcmp(argv[1], "foreach") == 0)
     {
         int arr[3] = {1, 2, 3};
@@ -192,7 +200,61 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "strndup") == 0)
     {
+        char *string = "Some Cool Text!";
+        char *duped_string = mx_strndup(string, 6);
+        mx_printstr(duped_string);
+    }
+
+    else if (strcmp(argv[1], "strcpy") == 0)
+    {
+        char *dst = malloc(10);
+        dst[9] = 'a';
+        char *src = "123456789";
+
+        mx_strcpy(dst, src);
+
+        printf("%s", dst);
+    }
+
+    else if (strcmp(argv[1], "strncpy") == 0)
+    {
+        char dst[25];
+
+        char *src = "123456789";
+
+        mx_strncpy(dst, src, 25);
+
+        printf("%s", dst);
+    }
+
+    else if (strcmp(argv[1], "strcat") == 0)
+    {
+        char dst[6];
+
+        dst[0] = 'a';
+        dst[1] = 'a';
+        dst[2] = 'a';
+        dst[3] = '\0';
+        dst[4] = '\0';
+        dst[5] = '\0';
+        char *src = "bb";
+        mx_strcat(dst, src);
+
+        printf("%s", dst);
 
     }
+
+    else if (strcmp(argv[1], "strstr") == 0)
+    {
+        char *s1 = "Hello ol Hello ol";
+        char *result = mx_strstr(s1, "");
+        printf("%s", result);
+    }
+
+    else if (strcmp(argv[1], "sub_str_index") == 0)
+    {
+        mx_printint(mx_get_substr_index("Hello ol Hello ol", ""));
+    }
+
 
 }

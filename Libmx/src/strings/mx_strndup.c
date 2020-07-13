@@ -13,7 +13,7 @@ char *mx_strndup(const char *s1, size_t n)
 {
     char *string = malloc(n + 1);
 
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
 
         if (*s1)
