@@ -14,7 +14,6 @@
  * mx_binary_search(arr, 6, "aBc", &count); //returns 2 and count = 1 count = 0;
  * mx_binary_search(arr, 6, "aBz", &count); //returns -1 and count = 0
  */
-
 int mx_binary_search(char **arr, int size, const char *s, int *count)
 {
     int low = 0, mid, high = size - 1;

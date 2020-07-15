@@ -7,7 +7,7 @@
  * @date 6/30/2020
  */
 
-int mx_strlen(char *string)
+int mx_strlen(const char *string)
 {
     int len = 0;
 

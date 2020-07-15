@@ -10,7 +10,6 @@
 
 unsigned long mx_hex_to_nbr(const char *hex)
 {
-
     unsigned long result = 0;
     int hex_len = mx_strlen((char *)hex) - 1;
 

@@ -3,13 +3,14 @@
 #include <stddef.h>
 #include <string.h>
 
-#define FUNC_COUNT 27
+#define FUNC_COUNT 36
 
 int main(int argc, char **argv)
 {
     char *functions[FUNC_COUNT] = {"printchar", "unicode", "printstr", "printstr_arr", "printint", "pow", "sqrt", "nbr_to_hex", "hex_to_nbr", "itoa", "foreach",
                                    "binary_search", "bubble_sort", "quick_sort", "strlen", "swapchr", "revers_str", "strdel", "del_str_attr",
-                                   "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index"};
+                                   "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index", "count_substr", "count_words",
+                                   "strnew", "trim", "del_extra_space", "split", "join", "file_to_str", "read_line"};
 
     if (strcmp(argv[1], "choose") == 0)
     {
@@ -49,7 +50,7 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "unicode") == 0)
     {
-        wchar_t c = L'ॵ';
+        wchar_t c = 0x110000 - 1;
         mx_print_unicode(c);
     }
 
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
         mx_printstr(mx_nbr_to_hex(4294967295));
 
     else if (strcmp(argv[1], "hex_to_nbr") == 0)
-        printf("%lu", mx_hex_to_nbr("FFFFFFFF"));
+        printf("%lu", mx_hex_to_nbr(NULL));
 
     else if (strcmp(argv[1], "itoa") == 0)
     {
@@ -254,7 +255,97 @@ int main(int argc, char **argv)
     else if (strcmp(argv[1], "sub_str_index") == 0)
     {
         mx_printint(mx_get_substr_index("Hello ol Hello ol", ""));
+        mx_printint(mx_get_substr_index("McDonalds", "Don")); //returns 2
+        mx_printint(mx_get_substr_index("McDonalds Donuts", "on")); //returns 3
+        mx_printint(mx_get_substr_index("McDonalds", "Donatello")); //returns -1
+        mx_printint(mx_get_substr_index("McDonalds", NULL)); //returns -2
+        mx_printint(mx_get_substr_index(NULL, "Don")); //returns -2
     }
 
+    else if (strcmp(argv[1], "count_substr") == 0)
+    {
+        char *str = "yo, yo, yo,   4332   \n    d  a   yo Neo";
+        char *sub = "yo";
+        mx_printint(mx_count_substr(str, sub)); //returns 4
+        mx_printint(mx_count_substr(str, NULL)); //returns -1
+        mx_printint(mx_count_substr(NULL, sub)); //returns -1
+    }
+
+    else if (strcmp(argv[1], "count_words") == 0)
+    {
+//        char *str = " f o l l o w t h e w h i t e r a b b i t ";
+        char *str = "**Good bye,**Mr.*Anderson.****";
+        mx_printint(mx_count_words(str, '*')); //returns 20
+
+        mx_printint(mx_count_words(NULL, ' ')); //returns -1
+    }
+
+    else if (strcmp(argv[1], "strnew") == 0)
+    {
+        char *string = mx_strnew(10);
+        for (int i = 0; i <= 10; i++)
+            string[i] = 'a';
+
+        printf("%s", string);
+    }
+
+    else if (strcmp(argv[1], "trim") == 0)
+    {
+        char *name = "\f   My name... is Neo    \t\n";
+        printf("%s", mx_strtrim(name)); //returns "My name... is Neo"
+    }
+
+    else if (strcmp(argv[1], "del_extra_space") == 0)
+    {
+        char *name = "\f     My name...is \r Neo      \t\n";
+        printf("%s", mx_del_extra_spaces(name)); //returns "My name... is Neo"
+    }
+
+    else if(strcmp(argv[1], "split") == 0)
+    {
+        char *s = "**Good bye,**Mr.*Anderson.****";
+        char **arr = mx_strsplit(s, '*');// arr = ["Good bye,", "Mr.", "Anderson."]
+
+        for (int i = 0; i < 3; i++)
+            printf("%s\n", arr[i]);
+
+        s = "Knock, knock,    Neo.   ";
+        arr = mx_strsplit(s, ' '  );// arr = ["Knock,", "knock,", "Neo."]
+
+        for (int i = 0; i < 3; i++)
+            printf("%s\n", arr[i]);
+    }
+
+    else if (strcmp(argv[1], "join") == 0)
+    {
+        char *str1 = "this";
+        char *str2 = "dodge ";
+        char *str3 = NULL;
+
+        mx_strjoin(str2, str1); //returns "dodge this"
+        printf("%s", str3);
+
+        mx_strjoin(str1, str3); //returns "this"
+        printf("%s", str3);
+
+        mx_strjoin(str3, str3); //returns NULL
+        printf("%s", str3);
+        mx_strdel(&str3);
+    }
+
+    else if (strcmp(argv[1], "file_to_str") == 0)
+    {
+        printf("%s", mx_file_to_str("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assests/file_to_str.txt"));
+    }
+
+    else if (strcmp(argv[1], "read_line") == 0)
+    {
+        char *string = mx_strnew(1000);
+        int fd = open("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assests/read_line.txt", O_RDONLY);
+        int res = mx_read_line(&string, 15, 'a', fd);
+        int res1 = mx_read_line(&string, 60, '9', fd);
+        int res1 = mx_read_line(&string, 60, '9', fd);
+        printf("%s", string);
+    }
 
 }

@@ -2,11 +2,10 @@
 
 int mx_get_substr_index(const char *str, const char *sub)
 {
-
-    int sub_len = mx_strlen((char *)sub);
-
     if (!str || !sub || !*str || !*sub)
         return -2;
+
+    int sub_len = mx_strlen((char *)sub);
 
     for (int i = 0; str[i]; i++)
         if (str[i] == sub[0])
