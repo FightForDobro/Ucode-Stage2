@@ -3,14 +3,16 @@
 #include <stddef.h>
 #include <string.h>
 
-#define FUNC_COUNT 36
+#define FUNC_COUNT 45
+
 
 int main(int argc, char **argv)
 {
     char *functions[FUNC_COUNT] = {"printchar", "unicode", "printstr", "printstr_arr", "printint", "pow", "sqrt", "nbr_to_hex", "hex_to_nbr", "itoa", "foreach",
                                    "binary_search", "bubble_sort", "quick_sort", "strlen", "swapchr", "revers_str", "strdel", "del_str_attr",
                                    "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index", "count_substr", "count_words",
-                                   "strnew", "trim", "del_extra_space", "split", "join", "file_to_str", "read_line"};
+                                   "strnew", "trim", "del_extra_space", "split", "join", "file_to_str", "read_line", "replace_substr", "memset", "memcpy", "memccpy",
+                                   "memcmp", "memchr", "memrchr", "memmem", "memmove"};
 
     if (strcmp(argv[1], "choose") == 0)
     {
@@ -344,8 +346,89 @@ int main(int argc, char **argv)
         int fd = open("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assests/read_line.txt", O_RDONLY);
         int res = mx_read_line(&string, 15, 'a', fd);
         int res1 = mx_read_line(&string, 60, '9', fd);
-        int res1 = mx_read_line(&string, 60, '9', fd);
+//        int res1 = mx_read_line(&string, 60, '9', fd);
         printf("%s", string);
+    }
+
+    else if (strcmp(argv[1], "replace_substr") == 0)
+        printf("Under Construction");
+
+    else if (strcmp(argv[1], "memset") == 0)
+    {
+        char *string = mx_strnew(10);
+
+        printf("%s\n", mx_memset(string, 'c', 10));
+        printf("%s", string);
+    }
+
+    else if (strcmp(argv[1], "memcpy") == 0)
+    {
+        char *string = mx_strnew(100);
+        string[0] = '1';
+        string[1] = '.';
+        string[2] = ' ';
+
+        char *src= "Game World!";
+
+
+        printf("%s\n", mx_memcpy(string, src, 11));
+        printf("%s", string);
+    }
+
+    else if (strcmp(argv[1], "memccpy") == 0)
+    {
+        char *string = mx_strnew(100);
+        string[0] = '1';
+        string[1] = '.';
+        string[2] = ' ';
+
+        char *src= "Game World!";
+
+        printf("%s\n", mx_memccpy(string, src, 'W', 11));
+        printf("%s", string);
+    }
+
+    else if (strcmp(argv[1], "memcmp") == 0)
+    {
+        char *s1 = "Hellb";
+        char *s2 = "Hella";
+
+        printf("%d", mx_memcmp(s1, s2, 6));
+    }
+
+    else if (strcmp(argv[1], "memchr") == 0)
+    {
+        char *s1 = "Hello";
+
+        printf("%s", mx_memchr(s1, 'l', 6));
+    }
+
+    else if (strcmp(argv[1], "memrchr") == 0)
+    {
+        printf("%s", mx_memrchr("Trinity", 'i', 7)); //returns "ity"
+        printf("%s", mx_memrchr("Trinity", 'M', 7)); //returns NULL
+    }
+
+    else if (strcmp(argv[1], "memmem") == 0)
+    {
+        char *big_s = "Hello ol Hello";
+        char *little_s = "ol";
+
+        printf("%s\n", memmem(big_s, mx_strlen(big_s), little_s, mx_strlen(little_s)));
+        printf("%s", mx_memmem(big_s, mx_strlen(big_s), little_s, mx_strlen(little_s)));
+    }
+
+    else if (strcmp(argv[1], "memmove") == 0)
+    {
+        char *dst = malloc(3);
+        const char *src = "Heooo:";
+
+        printf("Original: %s | new: %s", mx_memmove(dst, src, mx_strlen(src)), dst);
+    }
+
+    else if (strcmp(argv[1], "realloc") == 0)
+    {
+
     }
 
 }
