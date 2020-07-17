@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <string.h>
 
-#define FUNC_COUNT 45
+#define FUNC_COUNT 46
 
 
 int main(int argc, char **argv)
@@ -12,7 +12,7 @@ int main(int argc, char **argv)
                                    "binary_search", "bubble_sort", "quick_sort", "strlen", "swapchr", "revers_str", "strdel", "del_str_attr",
                                    "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index", "count_substr", "count_words",
                                    "strnew", "trim", "del_extra_space", "split", "join", "file_to_str", "read_line", "replace_substr", "memset", "memcpy", "memccpy",
-                                   "memcmp", "memchr", "memrchr", "memmem", "memmove"};
+                                   "memcmp", "memchr", "memrchr", "memmem", "memmove", "realloc"};
 
     if (strcmp(argv[1], "choose") == 0)
     {
@@ -414,7 +414,7 @@ int main(int argc, char **argv)
         char *big_s = "Hello ol Hello";
         char *little_s = "ol";
 
-        printf("%s\n", memmem(big_s, mx_strlen(big_s), little_s, mx_strlen(little_s)));
+//        printf("%s\n", memmem(big_s, mx_strlen(big_s), little_s, mx_strlen(little_s)));
         printf("%s", mx_memmem(big_s, mx_strlen(big_s), little_s, mx_strlen(little_s)));
     }
 
@@ -428,7 +428,18 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "realloc") == 0)
     {
+        char *string = malloc(12);
+        char *new_string;
 
+        printf("string size is %zu\n", mx_malloc_size(string));
+        mx_strcpy(string,"Hello Ucode");
+        printf("%s\n",string);
+
+        new_string = mx_realloc(string,34);
+        printf("new_string size is %zu\n", mx_malloc_size(new_string));
+        printf("%s\n",new_string);
+        mx_free(new_string);
+        new_string = NULL;
     }
 
 }

@@ -5,16 +5,21 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <stdbool.h>
+
+typedef struct s_list
+{
+    void *data;
+    struct s_list *next;
+}              t_list;
 
 /* Utils Pack */
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
 void mx_printstr(const char *s);
 void mx_print_strarr(char **arr, const char *delim);
-
 void mx_printint(int n);
-int mx_intlen(int num);
 double mx_pow(double n, unsigned int pow);
 int mx_sqrt(int x);
 char *mx_nbr_to_hex(unsigned long nbr);
@@ -26,8 +31,10 @@ int mx_binary_search(char **arr, int size, const char *s, int *count);
 int mx_bubble_sort(char **arr, int size);
 int mx_quicksort(char **arr, int left, int right);
 
-void str_swap(char **str1, char **str2, int *swaps);
+/* My Func */
+int mx_intlen(int num);
 bool mx_is_whitespace(char chr);
+void str_swap(char **str1, char **str2, int *swaps);
 
 /* Strings Pack */
 int mx_strlen(const char *string);
@@ -56,6 +63,8 @@ char *mx_strjoin(const char *s1, const char *s2);
 
 char *mx_file_to_str(const char *file);
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
+
+/* My Func */
 char *mx_strncat(char *s1, const char *s2, int num);
 
 /* Memory Pack */
@@ -67,5 +76,15 @@ void *mx_memchr(const void *s, int c, size_t n);
 void *mx_memrchr(const void *s, int c, size_t n);
 void *mx_memmem(const void *big, size_t big_len, const void *little, size_t little_len);
 void *mx_memmove(void *dst, const void *src, size_t len);
+void *mx_realloc(void *ptr, size_t size);
+
+/* My Func */
+void *mx_malloc(size_t n);
+void mx_free(void * p);
+size_t mx_malloc_size(void *p);
+
+/* List Pack */
+t_list *mx_create_node(void *data);
+void mx_push_front(t_list **list, void *data);
 
 #endif
