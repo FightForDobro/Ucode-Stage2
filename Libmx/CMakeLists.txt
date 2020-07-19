@@ -14,4 +14,7 @@ add_executable(ulibm main.c inc/libmx.h src/utils/mx_printchar.c src/utils/mx_pr
         src/strings/mx_strcat.c src/strings/mx_strstr.c src/strings/mx_strncmp.c src/strings/mx_get_substr_index.c src/strings/mx_count_substr.c
         src/strings/mx_count_words.c src/strings/mx_delete_trailing_char.c src/strings/mx_strnew.c src/strings/mx_strtrim.c src/utils/mx_is_whitespace.c
         src/strings/mx_del_extra_spaces.c src/strings/mx_strsplit.c src/strings/mx_strjoin.c src/strings/mx_file_to_str.c src/strings/mx_read_line.c
-        src/strings/mx_strncat.c src/memory/mx_memset.c src/memory/mx_memcpy.c src/memory/mx_memccpy.c src/memory/mx_memcmp.c src/memory/mx_memchr.c src/memory/mx_memrchr.c src/memory/mx_memmove.c src/memory/mx_memmem.c src/memory/mx_realloc.c src/memory/mx_malloc.c src/memory/mx_malloc_size.c src/memory/mx_free.c src/list/mx_create_node.c src/list/mx_push_front.c)
+        src/strings/mx_strncat.c src/memory/mx_memset.c src/memory/mx_memcpy.c src/memory/mx_memccpy.c src/memory/mx_memcmp.c src/memory/mx_memchr.c
+        src/memory/mx_memrchr.c src/memory/mx_memmove.c src/memory/mx_memmem.c src/memory/mx_realloc.c src/memory/mx_malloc.c src/memory/mx_malloc_size.c
+        src/memory/mx_free.c src/list/mx_create_node.c src/list/mx_push_front.c src/list/mx_push_back.c src/list/mx_pop_front.c src/list/mx_pop_back.c
+        src/list/mx_list_size.c src/compare/int_comp.c src/compare/char_comp.c src/compare/str_comp.c src/strings/mx_strcmp.c src/list/mx_sort_list.c src/compare/multi_comp.c)

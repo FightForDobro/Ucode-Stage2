@@ -1,4 +1,0 @@
-"/Users/dushakov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/dushakov/CLionProjects/Ucode-Stage2/Libmx
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/cmake-build-debug

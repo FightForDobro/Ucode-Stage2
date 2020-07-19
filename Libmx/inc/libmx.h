@@ -48,7 +48,7 @@ char *mx_strndup(const char *s1, size_t n);
 char *mx_strcpy(char *dst, const char *src);
 char *mx_strncpy(char *dst, const char*src, int len);
 char *mx_strcat(char *restrict s1, const char *restrict s2);
-
+int mx_strcmp(char *s1, char *s2);
 int mx_strncmp(char *s1, char *s2, int n);
 char *mx_strstr(const char *haystack, const char *needle);
 int mx_get_substr_index(const char *str, const char *sub);
@@ -86,5 +86,16 @@ size_t mx_malloc_size(void *p);
 /* List Pack */
 t_list *mx_create_node(void *data);
 void mx_push_front(t_list **list, void *data);
+void mx_push_back(t_list **list, void *data);
+void mx_pop_front(t_list **head);
+void mx_pop_back(t_list **head);
+int mx_list_size(t_list *list);
+t_list *mx_sort_list(t_list *lst, bool(*cmp)(void*, void*));
+
+/* Compare Pack */ // ToDo: Make multiCompare
+bool compare_base(void *x, void *y);
+//bool compare_int(int x, int y);
+//bool compare_char(char x, char y);
+//bool compare_string(char *x, char *y)
 
 #endif

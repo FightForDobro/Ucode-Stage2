@@ -3,16 +3,17 @@
 #include <stddef.h>
 #include <string.h>
 
-#define FUNC_COUNT 46
+#define FUNC_COUNT 54
 
 
 int main(int argc, char **argv)
 {
     char *functions[FUNC_COUNT] = {"printchar", "unicode", "printstr", "printstr_arr", "printint", "pow", "sqrt", "nbr_to_hex", "hex_to_nbr", "itoa", "foreach",
                                    "binary_search", "bubble_sort", "quick_sort", "strlen", "swapchr", "revers_str", "strdel", "del_str_attr",
-                                   "get_char_index", "strdup", "strndup", "strcpy", "strncpy", "strcat", "strstr", "sub_str_index", "count_substr", "count_words",
+                                   "get_char_index", "strdup", "strndup", "strcpy", "strcmp", "strncpy", "strcat", "strstr", "sub_str_index", "count_substr", "count_words",
                                    "strnew", "trim", "del_extra_space", "split", "join", "file_to_str", "read_line", "replace_substr", "memset", "memcpy", "memccpy",
-                                   "memcmp", "memchr", "memrchr", "memmem", "memmove", "realloc"};
+                                   "memcmp", "memchr", "memrchr", "memmem", "memmove", "realloc", "new_node", "push_front", "push_back", "pop_front", "pop_back",
+                                   "list_size", "sort_list"};
 
     if (strcmp(argv[1], "choose") == 0)
     {
@@ -217,6 +218,14 @@ int main(int argc, char **argv)
         mx_strcpy(dst, src);
 
         printf("%s", dst);
+    }
+
+    else if (strcmp(argv[1], "strcmp") == 0)
+    {
+        char *string1 = "Abc";
+        char *string2 = "Abd";
+
+        printf("%d", mx_strcmp(string1, string2));
     }
 
     else if (strcmp(argv[1], "strncpy") == 0)
@@ -440,6 +449,107 @@ int main(int argc, char **argv)
         printf("%s\n",new_string);
         mx_free(new_string);
         new_string = NULL;
+    }
+
+    else if (strcmp(argv[1], "new_node") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+    }
+
+    else if (strcmp(argv[1], "push_front") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        mx_push_front(&list, "Pushed Data");
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+    }
+
+    else if (strcmp(argv[1], "push_back") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        mx_push_back(&list, "Pushed Data");
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+    }
+
+    else if (strcmp(argv[1], "pop_front") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        mx_pop_front(&list);
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+    }
+
+    else if (strcmp(argv[1], "pop_back") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        mx_pop_back(&list);
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+    }
+
+    else if (strcmp(argv[1], "list_size") == 0)
+    {
+        t_list *list = mx_create_node("Some useful data");
+        list->next = mx_create_node("Some hidden data");
+        list->next->next = mx_create_node("Some next data");
+
+        int list_size = mx_list_size(list);
+
+        for (; list != NULL ; list = list->next)
+            printf("%s -> ", list->data);
+
+        printf("%s", list);
+
+        printf("\tList size is: [%d]", list_size);
+    }
+
+    else if (strcmp(argv[1], "sort_list") == 0)
+    {
+        t_list *list = mx_create_node(63);
+        list->next = mx_create_node(32);
+        list->next->next = mx_create_node(653);
+        list->next->next->next = mx_create_node(1);
+        list->next->next->next->next = mx_create_node(1);
+        list->next->next->next->next->next = mx_create_node(0);
+
+        mx_sort_list(list, compare_base);
+
+        for (; list != NULL ; list = list->next)
+            printf("%d -> ", list->data);
+
+        printf("%s", list);
     }
 
 }

@@ -10,5 +10,6 @@ void mx_push_front(t_list **list, void *data)
     if (new_node == NULL)
         return;
 
-    new_node->next = new_node;
+    new_node->next = *list;
+    *list = new_node;
 }
