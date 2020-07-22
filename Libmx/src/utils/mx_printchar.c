@@ -8,7 +8,6 @@
  * @example mx_printchar('a'); or char chr = 'a'; mx_printchar(chr);
  * @param c The letter you want to print
  */
-void mx_printchar(char c)
-{
+void mx_printchar(char c) {
     write(1, &c, 1);
 }

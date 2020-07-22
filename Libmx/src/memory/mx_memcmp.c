@@ -1,5 +1,8 @@
 #include "libmx.h"
 
+/**
+ * Function that has the same behavior as the standard stdlib functionmemcmp
+ */
 int mx_memcmp(const void *s1, const void *s2, size_t n)
 {
     unsigned char *string1 = (unsigned char *)s1;

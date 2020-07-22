@@ -1,5 +1,11 @@
 #include "libmx.h"
 
+/**
+ * Function counts substrings in string
+ * @param str string
+ * @param sub substring
+ * @return substrings count
+ */
 int mx_count_substr(const char *str, const char *sub)
 {
     /* Base cases */

@@ -6,7 +6,6 @@
  * @version a-1.0
  * @date 7/7/2020
  */
-
 void mx_str_reverse(char *s)
 {
     if (s)

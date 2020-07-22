@@ -1,5 +1,4 @@
 #include "libmx.h"
-#include <string.h> // ToDo: Change to my func
 
 /**
  * @brief sorts an array of strings in place in lexicographical order uses the bubble sort algorithm
@@ -8,7 +7,6 @@
  * @date 7/5/2020
  * @returns Returns the number of swap operations
  */
-
 int mx_bubble_sort(char **arr, int size)
 {
     int swaps = 0;
@@ -18,7 +16,7 @@ int mx_bubble_sort(char **arr, int size)
         for (int j = i + 1; j < size; j++)
         {
 
-            int compr_result = strcmp(arr[i], arr[j]);
+            int compr_result = mx_strcmp(arr[i], arr[j]);
 
             if (compr_result > 0)
             {
@@ -31,6 +29,5 @@ int mx_bubble_sort(char **arr, int size)
 
         }
     }
-
     return swaps;
 }

@@ -7,7 +7,6 @@
  * @date 7/7/2020
  * @example
  */
-
 void mx_swap_char(char *s1, char *s2)
 {
     if (*s1 && *s2)

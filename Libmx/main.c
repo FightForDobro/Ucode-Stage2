@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "unicode") == 0)
     {
-        wchar_t c = 0x110000 - 1;
+        wchar_t c = L'▩';
         mx_print_unicode(c);
     }
 
@@ -160,28 +160,13 @@ int main(int argc, char **argv)
         char **arr = malloc(sizeof(char *) * 7);
         arr[6] = NULL;
 
-        char *string = malloc(sizeof(char) * 17);
-        string[0] = 'a';
-        char *string1 = malloc(sizeof(char) * 17);
-        string1[0] = 'a';
-        char *string2 = malloc(sizeof(char) * 17);
-        string2[0] = 'a';
-        char *string3 = malloc(sizeof(char) * 17);
-        string3[0] = 'a';
-        char *string4 = malloc(sizeof(char) * 17);
-        string4[0] = 'a';
-        char *string5 = malloc(sizeof(char) * 17);
-        string5[0] = 'a';
 
-        arr[0] = string;
-        arr[1] = string1;
-        arr[2] = string2;
-        arr[3] = string3;
-        arr[4] = string4;
-        arr[5] = string5;
+        for (int i = 0; i < 6; i++) {
+            arr[i] = mx_strnew(17);
+            mx_strcpy(arr[i], "Hello");
+        }
 
         mx_del_strarr(&arr);
-        printf("%s", string);
     }
 
     else if (strcmp(argv[1], "get_char_index") == 0)
@@ -325,6 +310,7 @@ int main(int argc, char **argv)
 
         for (int i = 0; i < 3; i++)
             printf("%s\n", arr[i]);
+
     }
 
     else if (strcmp(argv[1], "join") == 0)
@@ -346,13 +332,13 @@ int main(int argc, char **argv)
 
     else if (strcmp(argv[1], "file_to_str") == 0)
     {
-        printf("%s", mx_file_to_str("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assests/file_to_str.txt"));
+        printf("%s", mx_file_to_str("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assets/file_to_str.txt"));
     }
 
     else if (strcmp(argv[1], "read_line") == 0)
     {
         char *string = mx_strnew(1000);
-        int fd = open("../assests/4gvl1_4", O_RDONLY);
+        int fd = open("../assets/4gvl1_4", O_RDONLY);
 
         int res = mx_read_line(&string, 20, 'f', fd); //res = 25, str = "The hotel was abandoned a"
         printf("%d | %s\n", res, string);

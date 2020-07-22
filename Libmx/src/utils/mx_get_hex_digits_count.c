@@ -10,7 +10,6 @@
 
 int mx_get_hex_digits_count(unsigned long num)
 {
-
     for (int i = 0; num != 0; i++)
     {
         double res1 = (mx_pow(16, i));

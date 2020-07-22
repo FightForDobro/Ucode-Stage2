@@ -1,5 +1,12 @@
 #include "libmx.h"
 
+/**
+ * Compare s1 and s2 and to n
+ * @param s1 First string
+ * @param s2 Second string
+ * @param n number of bytes to check
+ * @return deference of incorrect char
+ */
 int mx_strncmp(char *s1, char *s2, int n)
 {
     int i = 0;

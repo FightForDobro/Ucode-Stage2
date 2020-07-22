@@ -13,6 +13,7 @@ static int check_size(void **ptr, size_t size)
 }
 
 /**
+ * function that has the same behavior as the standard stdlib functionrealloc
  * @warning FREE WITH FUNCTION `mx_free()`
  */
 void *mx_realloc(void *ptr, size_t size)
@@ -37,6 +38,5 @@ void *mx_realloc(void *ptr, size_t size)
   mx_memmove(newptr, ptr, msize);
   free(ptr);
   ptr = NULL;
-
   return newptr;
 }

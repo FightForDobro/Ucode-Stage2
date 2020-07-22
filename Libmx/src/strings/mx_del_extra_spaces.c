@@ -1,35 +1,13 @@
 #include "libmx.h"
-//ToDo: Check Memmory
-//char *mx_del_extra_spaces(const char *str)
-//{
-//    char *trimed_string = mx_strtrim(str);
-//    char *result = mx_strnew(mx_strlen(trimed_string));
-//
-//    int space = 0;
-//
-//    for (int i = 0; trimed_string[i]; i++)
-//    {
-//        if (mx_is_whitespace(trimed_string[i]))
-//            space = 1;
-//
-//        result[mx_strlen(result)] = trimed_string[i];
-//
-//        if (space)
-//        {
-//            while (mx_is_whitespace(trimed_string[i]))
-//                i++;
-//            i--;
-//        }
-//
-//        space = 0;
-//    }
-//
-//    mx_strdel(&trimed_string);
-//
-//    return result;
-//}
 
-
+/**
+ * • takes a string, and creates a new one from it without whitespace characters at the beginning and the end of the string
+ * • frees all unused memory
+ * @param str
+ * @return
+ * • returns a new trimmed string
+ * • returns NULL if the string str does not exist or string trim fails
+ */
 char *mx_del_extra_spaces(const char *str) {
     char *new_str = mx_strtrim(str);
     char *res;
@@ -49,5 +27,6 @@ char *mx_del_extra_spaces(const char *str) {
     res = mx_strnew(j);
     res = mx_strncpy(res, new_str, j + 1);
     mx_strdel(&new_str);
+    if (!res) return NULL;
     return res;
 }

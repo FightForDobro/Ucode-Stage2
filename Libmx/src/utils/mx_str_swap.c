@@ -7,7 +7,6 @@
  * @version a-1.0
  * @date 7/6/2020
  */
-
 void str_swap(char **str1, char **str2, int *swaps)
 {
     char *temp = *str1;

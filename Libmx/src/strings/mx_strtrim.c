@@ -1,5 +1,13 @@
 #include "libmx.h"
 
+/**
+ * • takes a string, and creates a new one from it without whitespace characters at the beginning and the end of the string
+ * • frees all unused memory
+ * @param str String to trim
+ * @return
+ * • returns a new trimmed string
+ * • returns NULL if the string str does not exist or string trim fails
+ */
 char *mx_strtrim(const char *str)
 {
     char *result = mx_strnew(mx_strlen(str));
@@ -14,6 +22,8 @@ char *mx_strtrim(const char *str)
 
     while (mx_is_whitespace(str[str_len]))
         result[str_len--] = '\0';
+
+    if (!result) return NULL;
 
     return result;
 }

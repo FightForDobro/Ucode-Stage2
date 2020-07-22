@@ -1,5 +1,11 @@
 #include "libmx.h"
 
+/**
+ * Function return index of substring start
+ * @param str String
+ * @param sub Substring
+ * @return index of substring
+ */
 int mx_get_substr_index(const char *str, const char *sub)
 {
     if (!str || !sub || !*str || !*sub)

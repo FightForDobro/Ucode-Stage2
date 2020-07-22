@@ -1,5 +1,5 @@
 #include "libmx.h"
-#include <string.h> // ToDo: Change to my func
+
 /**
  * @brief Searches the strings  in the array arr with the given sizeof array
  * uses the binary search algorithm assuming that the input array has already been sorted in a lexicographical order
@@ -18,30 +18,21 @@ int mx_binary_search(char **arr, int size, const char *s, int *count)
 {
     int low = 0, mid, high = size - 1;
     int c = 0;
-
-    while (low <= high)
-    {
-
+    while (low <= high){
         c++;
 
         mid = (low + high) / 2;
-        int comp_result = strcmp(arr[mid], s);
+        int comp_result = mx_strcmp(arr[mid], (char *)s);
 
-        if (comp_result == 0)
-        {
+        if (comp_result == 0){
             *count = c;
             return mid;
         }
-
         else if (comp_result < 0)
             low = mid + 1;
-
         else
             high = mid - 1;
-
     }
-
     *count = 0;
-
     return -1;
 }

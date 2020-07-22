@@ -3,8 +3,8 @@
 /**
  *
  * • returns the index of the first occurrence
- * • returns-1  if no occurrence is found
- * • returns-2  if the string does not exist
+ * • returns -1  if no occurrence is found
+ * • returns -2  if the string does not exist
  *
  * @brief finds the index of the first occurrence of the character c  in a string str . A string is a sequence of characters, excluding NULL in the end.
  * @author Denys Ushakov

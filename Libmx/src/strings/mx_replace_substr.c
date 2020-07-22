@@ -1,5 +1,12 @@
 #include "libmx.h"
 
+/**
+ * Function that replaces all occurrences ofsubinstrwithreplace
+ * @param str String
+ * @param sub Substring
+ * @param replace string to replace sub
+ * @return modified string
+ */
 char *mx_replace_substr(const char *str, const char *sub, const char *replace)
 {
     int sub_len = mx_strlen(sub);
