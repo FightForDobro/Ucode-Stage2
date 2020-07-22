@@ -63,6 +63,7 @@ char *mx_strjoin(const char *s1, const char *s2);
 
 char *mx_file_to_str(const char *file);
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
+char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 
 /* My Func */
 char *mx_strncat(char *s1, const char *s2, int num);
@@ -94,8 +95,6 @@ t_list *mx_sort_list(t_list *lst, bool(*cmp)(void*, void*));
 
 /* Compare Pack */ // ToDo: Make multiCompare
 bool compare_base(void *x, void *y);
-//bool compare_int(int x, int y);
-//bool compare_char(char x, char y);
-//bool compare_string(char *x, char *y)
+bool compare_string(char *x, char *y);
 
 #endif

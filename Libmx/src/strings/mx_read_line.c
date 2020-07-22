@@ -1,34 +1,48 @@
 #include "libmx.h"
 
-static long long find_letter(const char *string, char delim)
-{
-
-    for (int i = 0; string[i]; ++i)
-        if (string[i] == delim)
-            return i;
-
-    return -1;
-}
-
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd)
 {
-    char buf[buf_size];
-    int bytes_in_lptr = read(fd, &buf, buf_size);
+    if (fd == -1 || buf_size <= 0) return -2;
 
-    int len_of_line = mx_strlen(*lineptr);
+    static char *rem = NULL;
+    int index;
+    char *buf = mx_strnew(buf_size);
+    int r;
+    *lineptr += mx_strlen(*lineptr);
 
-    while (bytes_in_lptr)
+    while ((r = read(fd, buf, buf_size)))
     {
-        if (find_letter(buf, delim) < 0)
-        {
-            return bytes_in_lptr;
-        }
+        if (rem == NULL)
+            index = mx_get_char_index(buf, delim);
 
-        mx_strncat(*lineptr, buf, buf_size);
-        bytes_in_lptr += read(fd, &buf, buf_size);
+        else
+            index = mx_get_char_index(rem, delim);
+
+        if (index != -1)
+        {
+            if (rem != NULL)
+            {
+                buf = mx_strjoin(rem, buf);
+                mx_strdel(&rem);
+            }
+
+            rem = mx_strdup(&buf[index + 1]);
+            buf[index] = '\0';
+            *lineptr = mx_strjoin(*lineptr, buf);
+            break;
+        } else {
+            if (rem != NULL)
+            {
+                *lineptr = mx_strjoin(*lineptr, rem);
+                mx_strdel(&rem);
+            }
+
+            buf[index] = '\0';
+            *lineptr = mx_strjoin(*lineptr, buf);
+        }
     }
 
-    *lineptr[len_of_line + bytes_in_lptr] = '\0';
+    if (r < 0) return -1;
 
-    return bytes_in_lptr;
+    return mx_strlen(*lineptr);
 }

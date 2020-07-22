@@ -17,4 +17,4 @@ add_executable(ulibm main.c inc/libmx.h src/utils/mx_printchar.c src/utils/mx_pr
         src/strings/mx_strncat.c src/memory/mx_memset.c src/memory/mx_memcpy.c src/memory/mx_memccpy.c src/memory/mx_memcmp.c src/memory/mx_memchr.c
         src/memory/mx_memrchr.c src/memory/mx_memmove.c src/memory/mx_memmem.c src/memory/mx_realloc.c src/memory/mx_malloc.c src/memory/mx_malloc_size.c
         src/memory/mx_free.c src/list/mx_create_node.c src/list/mx_push_front.c src/list/mx_push_back.c src/list/mx_pop_front.c src/list/mx_pop_back.c
-        src/list/mx_list_size.c src/compare/int_comp.c src/compare/char_comp.c src/compare/str_comp.c src/strings/mx_strcmp.c src/list/mx_sort_list.c src/compare/multi_comp.c)
+        src/list/mx_list_size.c src/compare/str_comp.c src/strings/mx_strcmp.c src/list/mx_sort_list.c src/compare/multi_comp.c src/strings/mx_replace_substr.c)

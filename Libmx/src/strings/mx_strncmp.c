@@ -13,5 +13,5 @@ int mx_strncmp(char *s1, char *s2, int n)
         n--;
     }
 
-    return s1[i] - s2[i];
+    return s1[i - 1] - s2[i - 1];
 }

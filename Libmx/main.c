@@ -352,15 +352,22 @@ int main(int argc, char **argv)
     else if (strcmp(argv[1], "read_line") == 0)
     {
         char *string = mx_strnew(1000);
-        int fd = open("/Users/dushakov/CLionProjects/Ucode-Stage2/Libmx/assests/read_line.txt", O_RDONLY);
-        int res = mx_read_line(&string, 15, 'a', fd);
-        int res1 = mx_read_line(&string, 60, '9', fd);
-//        int res1 = mx_read_line(&string, 60, '9', fd);
-        printf("%s", string);
+        int fd = open("../assests/4gvl1_4", O_RDONLY);
+
+        int res = mx_read_line(&string, 20, 'f', fd); //res = 25, str = "The hotel was abandoned a"
+        printf("%d | %s\n", res, string);
+        res = mx_read_line(&string, 35, 't', fd); //res = 0, str = ""
+        printf("%d | %s\n", res, string);
+        res = mx_read_line(&string, 4, '.', fd); //res = 163
+        printf("%d | %s\n", res, string);
+
     }
 
     else if (strcmp(argv[1], "replace_substr") == 0)
-        printf("Under Construction");
+    {
+        printf("%s", mx_replace_substr("McDonalds\n", "alds", "uts")); //returns "McDonuts"
+        printf("%s", mx_replace_substr("Ururu turu\n", "ru", "ta")) ; //returns "Utata tuta")
+    }
 
     else if (strcmp(argv[1], "memset") == 0)
     {

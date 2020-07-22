@@ -2,34 +2,19 @@
 
 char *mx_strjoin(const char *s1, const char *s2)
 {
-    char *result;
-
-    if (!s1 && !s2)
+    if (s1 == NULL && s2 == NULL)
         return NULL;
 
-    else if (!s1)
-    {
-        result = mx_strnew(mx_strlen(s2));
-        mx_strcpy(result, s2);
-        return result;
-    }
-    else if (!s2)
-    {
-        result = mx_strnew(mx_strlen(s1));
-        mx_strcpy(result, s1);
-        return result;
-    }
+    if (s1 == NULL)
+        return mx_strdup(s2);
 
-    result = mx_strnew(mx_strlen(s1) + mx_strlen(s2));
+    else if (s2 == NULL)
+        return mx_strdup(s1);
 
-    while (*s1)
-        result[mx_strlen(result)] = *s1++;
+    char *result = mx_strnew(mx_strlen(s1) + mx_strlen(s2));
 
-    while (*s2)
-        result[mx_strlen(result)] = *s2++;
-
-    if (!result)
-        return NULL;
+    mx_strcpy(result, s1);
+    mx_strcat(result, s2);
 
     return result;
 }

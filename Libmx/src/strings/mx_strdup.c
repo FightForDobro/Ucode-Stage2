@@ -6,10 +6,8 @@
  * @version a-1.0
  * @date 7/7/2020
  */
-
 char *mx_strdup(const char *s1)
 {
-
     int s1_len = mx_strlen((char *)s1);
 
     char *duped_string = malloc(s1_len + 1);
